@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import dashboardRoutes from "./routes/dashboardRoutes";
 
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(bodyParser.json());``
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cors());
 
+app.use("/dashboard", dashboardRoutes);
 
 app.get("/hello", (req,res)=> {
     res.send("Hello World");
